@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>nez vase</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <script src="https://kit.fontawesome.com/e8f240f7df.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://use.typekit.net/ols0qva.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="ham-menu" class="cf">        
+    <nav>
+      <ul>
+        <li><a href="index.html" class="menu-bar">HOME</a></li>
+        <li><a href="about.html"class="menu-bar">ABOUT</a></li>
+        <li><a href="#main-items"class="menu-bar">ITMES</a></li>
+        <li><a href="https://nezvase.stores.jp/"class="menu-bar" target="_blank">ONLINE STORE</a></li>
+        <li><a href="#main_gallery"class="menu-bar">GALLERY</a></li>
+        <li><a href="#main_contact"class="menu-bar">CONTACT</a></li>
+      </ul>
+    </nav> 
+    <div id="side-footer">
+      <p>©︎2020 MINATO ICHIHASHI</p>
+    </div>
+  </div>
+  <div id="menu-background"></div>
+  <div id="wrapper" class="cf">
+    <div id="about_images" class="cf">
+    </div>
+    <div id="about_intro" class="cf">
+      <div class="title-box2"> 
+        <h2 class=" title-main fadein">"nez vase"</h2>
+      </div>
+      <p class="fadein"> 
+        （英訳）考え中考え中考え中考え中考え中考え中<br>
+        考え中考え中考え中考え中考え中考え中<br>
+        考え中考え中考え中考え中考え中考え中<br>
+        考え中考え中考え中考え中考え中考え中<br>
+        考え中考え中考え中考え中考え中考え中<br>
+      </p>
+      <p class="fadein"> 
+        （和訳）考え中考え中考え中考え中考え中考え中<br>
+        考え中考え中考え中考え中考え中考え中<br>
+        考え中考え中考え中考え中考え中考え中<br>
+        考え中考え中考え中考え中考え中考え中<br>
+        考え中考え中考え中考え中考え中考え中<br>
+      </p>
+      <p class="fadein">instagram : <a class="fadein" href="https://www.instagram.com/nezvase/">@nezvase <br>
+            <a class="fadein" href="https://nezvase.stores.jp/"><img src="images/store.jpg" alt="store-icon"></a>
+      </a>
+      </p>
+    </div>
+    <script src="jquery.js"></script>
+      <script>
+        $(function(){
+          $(window).scroll(function(){
+            $('.fadein').each(function(){
+              var elemPos =$(this).offset().top;
+              var scroll =$(window).scrollTop();
+              var windowHeight =$(window).height();
+              if(scroll > elemPos - windowHeight+200){
+                $(this).addClass('scrollin');
+              }
+            });
+          });
+        });
+      </script>
+    <footer>
+      <ul>
+        <li><a href="#about_images">TOP</a><a href="index.html">HOME</a></li>
+        <li id="copyright">©︎2020 MINATO ICHIHASHI</li>
+      </ul>
+    </footer>
+</div>
+</body>
+</html>
