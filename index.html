@@ -1,0 +1,117 @@
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>nez vase</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <script src="https://kit.fontawesome.com/e8f240f7df.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://use.typekit.net/ols0qva.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="ham-menu" class="cf">        
+    <nav>
+      <ul>
+        <li><a href="#main_images" class="menu-bar">HOME</a></li>
+        <li><a href="about.html"class="menu-bar">ABOUT</a></li>
+        <li><a href="#main-items"class="menu-bar">ITMES</a></li>
+        <li><a href="https://nezvase.stores.jp/"class="menu-bar" target="_blank">ONLINE STORE</a></li>
+        <li><a href="#main_gallery"class="menu-bar">GALLERY</a></li>
+        <li><a href="#main_contact"class="menu-bar">CONTACT</a></li>
+      </ul>
+    </nav> 
+    <div id="side-footer">
+      <p>©︎2020 MINATO ICHIHASHI</p>
+    </div>
+  </div>
+  <div id="menu-background"></div>
+  
+  <div id="wrapper" class="cf">
+    <div id="main_img">
+    </div>
+    <div id="main-items" class="cf">
+      <div class="title-box fadein">
+        <h1 class="title-main">ITMES</h1>
+      </div>
+      <script src="jquery.js"></script>
+      <script>
+        $(function(){
+          $(window).scroll(function(){
+            $('.fadein').each(function(){
+              var elemPos =$(this).offset().top;
+              var scroll =$(window).scrollTop();
+              var windowHeight =$(window).height();
+              if(scroll > elemPos - windowHeight+200){
+                $(this).addClass('scrollin');
+              }
+            });
+          });
+        });
+      </script>
+      <ul class="cf">
+        <li><a href="https://nezvase.stores.jp/items/5f9e3988f0b10828148b4e22" target="_blank"><img src="images/no1.jpeg" alt="glass" class="items-img"></a></li>
+        <li><a href="https://nezvase.stores.jp/items/5fa91812f0b1085b1e7015bf" target="_blank"><img src="images/no2.jpeg" alt="glass" class="items-img"></a></li>
+        <li><a href="https://nezvase.stores.jp/items/5f7d67c74b083965a4ac35a1" target="_blank"><img src="images/no4.png" alt="glass" class="items-img"></a></li>
+        <li><a href="https://nezvase.stores.jp/items/5f66193907e163794611ce42" target="_blank"><img src="images/no3.jpg" alt="glass" class="items-img"></a></li>
+        <li><a href="https://nezvase.stores.jp/items/5f7d5c1f4b083965b2ac3281" target="_blank"><img src="images/no5.jpeg" alt="glass" class="items-img"></a></li>
+        <li><a href="https://nezvase.stores.jp/items/5f7d633793f6195acdcee8a5" target="_blank"><img src="images/no6.jpeg" alt="glass" class="items-img"></a></li>
+        <li><a href="https://nezvase.stores.jp/items/5f661a2d07e163794611ce45" target="_blank"><img src="images/no7.jpeg" alt="glass" class="items-img"></a></li>
+        <li><a href="https://nezvase.stores.jp/items/5f6346a907e16314e811a7e8" target="_blank"><img src="images/no8.jpg" alt="glass" class="items-img"></a></li>
+        <li><a href="https://nezvase.stores.jp/items/5f7d63cefbe5b54c07fab0cb" target="_blank"><img src="images/no9.png" alt="glass" class="items-img"></a></li>
+        <li><a href="https://nezvase.stores.jp/items/5f7d64664b083965b2ac3484" target="_blank"><img src="images/no10.jpeg" alt="glass" class="items-img"></a></li>
+        <li><a href="https://nezvase.stores.jp/items/5f63467d3ae0f4778669a5ba" target="_blank"><img src="images/no11.jpg" alt="glass" class="items-img"></a></li>
+        <li><a href="https://nezvase.stores.jp/items/5f7d5b158f2ebd4faf31a7f0" target="_blank"><img src="images/no12.png" alt="glass" class="items-img"></a></li>
+      </ul>
+      <p><a href="https://nezvase.stores.jp/" target="_blank"> online store...</a></p>
+    </div>
+    <div id="main_gallery" class="cf">
+      <div class="title-box fadein">
+        <h1 class="title-main">GALLERY</h1>
+      </div>
+      
+      <div  id="box1" class="silde_box cf">
+      <div  class="slidewrapper">
+          <div class="slide_item"><img src="images/gal03.png"></div>
+          <div class="slide_item"><img src="images/gal01.png"></div>
+          <div class="slide_item"><img src="images/gal04.png"></div>
+          <div class="slide_item"><img src="images/gal02.png"></div>
+          <div class="slide_item"><img src="images/gal05.png"></div>
+        </div>
+      </div>
+      <div id="box2" class="silde_box cf">
+        <div  class="slidewrapper">
+            <div class="slide_item"><img src="images/gal01.png"></div>
+            <div class="slide_item"><img src="images/gal04.png"></div>
+            <div class="slide_item"><img src="images/gal02.png"></div>
+            <div class="slide_item"><img src="images/gal05.png"></div>
+            <div class="slide_item"><img src="images/gal03.png"></div>
+          </div>
+        </div>
+        <div id="box3"  class="silde_box cf">
+          <div  class="slidewrapper">
+              <div class="slide_item"><img src="images/gal04.png"></div>
+              <div class="slide_item"><img src="images/gal02.png"></div>
+              <div class="slide_item"><img src="images/gal05.png"></div>
+              <div class="slide_item"><img src="images/gal03.png"></div>
+              <div class="slide_item"><img src="images/gal01.png"></div>
+            </div>
+          </div>
+      
+    </div>
+    <div id="main_contact" class="cf">
+      <div class="title-box fadein">
+        <h1 class="title-main">CONTACT</h1>
+      </div>
+      
+      <p><a href="https://www.instagram.com/nezvase/" target="_blank">send me a message...<br>
+        Instagram：@nezvase </a> </p>
+    </div>
+    <footer>
+      <ul>
+        <li><a href="#main_images">TOP</a></li>
+        <li id="copyright">©︎2020 MINATO ICHIHASHI</li>
+      </ul>
+    </footer>
+  </div>
+</body>
+</html>
