@@ -1,0 +1,480 @@
+@charset "utf-8";
+
+.cf:before,
+.cf:after{
+  content: " ";
+  display: table;
+}
+.cf:after{
+  clear: both;
+}
+
+.cf{
+  zoom: 1;
+}
+
+.clear{
+  clear:both;
+}
+/* ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+　　　全体設計
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ */
+html{
+  font-size: 10px;
+  font-family: minion-pro,serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+a{
+  text-decoration: none;
+}
+
+.title-box{
+  width:100%;
+  height:200px;
+  margin-top:50px;
+  text-align: center;
+}
+
+.title-box2{
+  text-align:center;
+}
+
+.title-main{
+  display:inline-block;
+  width:50%;
+  border-bottom: 1px solid #545050;
+  font-size: 2.0rem;
+  font-weight: 500;
+  text-align: center;
+  padding: 80px 0 20px 0;
+  color: #525050;
+}
+
+.fadein{
+  opacity: 0.1;
+  transform: translate(0,50px);
+  transition: all 700ms;
+}
+.fadein.scrollin{
+  opacity: 1;
+  transform: translate(0,0);
+}
+
+div#wrapper{
+  width: 100vw;
+  margin: 0 auto;
+}
+
+/* ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+　　　menu-bar
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ */
+#ham-menu{
+  background-color: #000;
+  box-sizing: border-box;
+  height: 100%;
+  padding: 10px 40px;
+  position: fixed;
+  right: -200px;
+  top:0;
+  transition: transform 0.3s linear 0s;
+  width: 200px;
+  z-index: 1000;
+}
+
+#ham-menu::before {
+  background-color: #080808; /*ボタン部分背景色*/
+  border-radius: 0 0 0 10px; /*左下角丸*/
+  color: #fff; /*アイコン（フォント）色*/
+  content: "≡"; /*メニューアイコン*/
+  display: block;
+  font-size: 50px; /*アイコン（フォント）サイズ*/
+  height: 50px;
+  line-height: 50px; /*縦位置中央化*/
+  position: absolute;
+  right: 100%;
+  text-align: center;
+  top: 0;
+  width: 50px;
+}
+
+/*透過背景部分*/
+#menu-background {
+  background-color: #080808; /*黒背景部分背景色*/
+  display: block;
+  height: 100%;
+  opacity: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transition: all 0.3s linear 0s; /*0.3s は変化するのにかかる時間*/
+  width: 100%;
+  z-index: -1;
+}
+
+/*hover 時の処理*/
+#ham-menu:hover {
+  transform: translate(-200px); /*メニュー横幅①と合わせる*/
+}
+
+#ham-menu:hover + #menu-background {
+  opacity: 0; /*黒背景部分透過度*/
+  z-index: 999;
+}
+
+div#ham-menu ul{
+  position: absolute;
+  top:60px;
+}
+
+div#ham-menu a.menu-bar{
+  font-family: minion-pro,serif;
+  font-size: 1.4rem;
+  display: block;
+  margin-bottom: 35px;
+  color: #fff;
+}
+
+div#side-footer{
+  font-size: 0.4rem;
+  font-family: minion-pro,serif;
+  position: absolute;
+  bottom: 30px;
+  color: #fff;
+}
+/* ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+　　　TOP
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ */
+div#main_img{
+  background-image: url("images/nez\ vase-main\ 2.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  height: 100vh;
+} 
+
+
+/* ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+　　　items
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ */
+div#main-items{
+  height: auto;
+  margin: 0 auto;
+}
+div#main-items ul{
+  width: 375px;
+  height: auto;
+  margin: 0 auto;
+}
+.items-img{
+  width: 125px;
+  height: 180px;
+  float: left;
+  margin-bottom: 40px;
+}
+
+div#main-items p{
+  margin: 50px 0;
+}
+
+div#main-items a{
+  display: block;
+  font-size: 2rem;
+  color: #525050;
+  text-align: center;
+}
+/* ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+　　　Gallery
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ */
+div#main_gallery{
+  width: 100%;
+  height: auto;
+}
+
+.silde_box {
+	width: 355px;
+	height: 600px;
+	overflow: hidden;
+	margin: 2em auto;
+	border: 10px solid #ffffff;
+	box-shadow:0px 0px 5px 0px rgba(0,0,0,0.5);
+}
+.slide_item {
+	width: 375px;
+	height: 600px;
+	float: left;
+	position: relative;
+}
+.slidewrapper {
+	width: 500%;/* slideの枚数×100% */
+	position: relative;
+	left: 0;
+	animation: slider 20s infinite ease;/* スピード */
+}
+@-webkit-keyframes slider {
+	/* 100%を枚数で割った%に割り振る */
+	0% {
+	-webkit-transform: translateX(0);
+	transform: translateX(0);
+	}
+	20% {
+	-webkit-transform: translateX(-300px);
+	transform: translateX(-300px);
+	}
+	40% {
+	-webkit-transform: translateX(-600px);
+	transform: translateX(-600px);
+	}
+	60% {
+	-webkit-transform: translateX(-900px);
+	transform: translateX(-900px);
+	}
+	80% {
+	-webkit-transform: translateX(-1200px);
+	transform: translateX(-1200px);
+	}
+	100% {
+	-webkit-transform: translateX(0);
+	transform: translateX(0);
+	}
+}
+@keyframes slider {
+	/* 100%を枚数で割った%に割り振る */
+	0% {
+	-webkit-transform: translateX(0);
+	transform: translateX(0);
+	}
+	20% {
+	-webkit-transform: translateX(-300px);
+	transform: translateX(-300px);
+	}
+	40% {
+	-webkit-transform: translateX(-600px);
+	transform: translateX(-600px);
+	}
+	60% {
+	-webkit-transform: translateX(-900px);
+	transform: translateX(-900px);
+	}
+	80% {
+	-webkit-transform: translateX(-1200px);
+	transform: translateX(-1200px);
+	}
+	100% {
+	-webkit-transform: translateX(0);
+	transform: translateX(0);
+	}
+}
+
+
+/* ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+　　　contact
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ */
+
+
+div#main_contact a{
+  display: block;
+  text-align: center;
+  font-family: minion-pro,serif;
+  font-weight: 400;
+  color: #000;
+  font-style: normal;
+  font-size: 25px;
+  margin-top: 100px;
+  padding-bottom: 100px;
+}
+
+/* ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+　　　footer
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ */
+
+footer{
+  width:100%;
+  height:100px;
+}
+
+footer a{
+  color: #525050;
+  display: block;
+  text-align: center;
+  font-family: minion-pro,serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.4rem;
+  line-height: 1.7;
+}
+
+li#copyright{
+  text-align: center;
+  font-family: minion-pro,serif;
+  font-weight: 400;
+  font-style: normal;
+  margin-top: 50px;
+  font-size: 1rem;
+}
+/* ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+　　　ABOUT 
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ */
+div#about_images{
+  height: 100vh;
+  background-image: url(images/about-top.png);
+  position: relative;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+
+/* ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+　　　Intro
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ */
+div#about_intro{
+  width: 100%;
+  height: auto;
+}
+
+div#about_intro h2{
+  font-size: 3rem;
+  text-align: center;
+  margin-top: 50px;
+}
+
+div#about_intro p{
+  font-size: 1.6rem;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  line-height: 4;
+}
+
+div#about_intro a{
+  color: #525050;
+}
+
+div#about_intro img{
+  width: 90px;
+  height: 45px;
+  margin-bottom:140px; 
+}
+@media (max-width:767px){
+  div#box2, div#box3{
+    display: none;
+  }
+}
+
+
+
+/* ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+　　　iPad用
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ */
+
+@media (min-width:768px){
+  html{
+    font-size: 15px;
+  }
+  
+  div#wrapper{
+    width:768px;
+    margin: 0 auto ;
+  }
+  
+  #ham-menu{
+    background-color:rgba(82, 80, 80, 0.5);
+    right:-300px;
+    width: 300px;
+  }
+  #ham-menu:hover {
+    transform: translate(-300px); /*メニュー横幅①と合わせる*/
+  }
+  #ham-menu::before{
+    background-color:rgba(82, 80, 80, 0.5);
+    font-size: 80px; /*アイコン（フォント）サイズ*/
+    height: 80px;
+    width: 80px;
+    line-height: 80px;
+  }
+
+  div#ham-menu a.menu-bar{
+    font-family: minion-pro,serif;
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 35px;
+    color: #fff;
+  }
+  .title-main{
+    font-size: 2rem;
+  }
+  div#main_img{
+    position: relative;
+  }
+  div#main-items ul{
+    width: 768px;
+  }
+  .items-img{
+    width: 192px;
+    height: 300px;
+    margin-bottom: 30px;
+  }
+  .silde_box{
+    float:left;
+  }
+  /* about用 */
+  div#about_images{
+    background-image: url(images/about-iPad.png);
+  }
+}
+
+@media (min-width:768px) and (max-width:1023px){
+  div#box3{
+    display: none;
+  }
+  div#box1{
+    margin-left: 9px;
+  }
+}
+
+/* ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+　　　　PC用
+＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ */
+@media (min-width:1024px){
+  div#wrapper{
+    width:1125px;
+  }
+  div#main_img{
+    width: 1024px;
+    margin: 0 auto;
+  }
+  #ham-menu{
+    background-color: #fff;
+  }
+  div#ham-menu a.menu-bar{
+    color:#525050;
+  }
+  #ham-menu::before {
+  background-color: #fff;
+  color: #525050;
+}
+div#main-items ul{
+  width: 900px;
+  margin: 0 auto;
+}
+.items-img{
+  width: 225px;
+}
+div#main_img{
+  
+  background-image: url("images/main_images.png");
+}
+
+.silde_box{
+  float:left;
+}
+
+
+div#about_images{
+  background-image: url(images/nez\ vase\ main_images.png);
+}
+}
